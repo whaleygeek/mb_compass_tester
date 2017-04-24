@@ -1,18 +1,6 @@
 basic.forever(() => {
-    basic.showLeds(`
-        . . . . .
-        . # # # .
-        . # . # .
-        . # # # .
-        . . . . .
-        `)
+    led.plot(2, 2)
     serial.writeString(String.fromCharCode(input.compassHeading()))
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . # . .
-        . . . . .
-        . . . . .
-        `)
-    basic.pause(50)
+    led.unplot(2, 2)
+    basic.pause(100)
 })
