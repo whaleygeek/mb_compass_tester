@@ -12,11 +12,13 @@ basic.forever(() => {
 input.onButtonPressed(Button.A, () => {
     transmitting = true
 })
-input.onButtonPressed(Button.B, () => {
-    transmitting = false
-})
 radio.onDataPacketReceived(({receivedNumber}) => {
     led.plot(2, 2)
     serial.writeNumber(receivedNumber)
+    serial.writeLine("")
     led.unplot(2, 2)
 })
+input.onButtonPressed(Button.B, () => {
+    transmitting = false
+})
+radio.setGroup(1)
